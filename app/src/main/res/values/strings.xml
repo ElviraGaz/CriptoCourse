@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CriptoCourse</string>
+
+    <string name="network.error">Ошибка запроса</string>
+</resources>
