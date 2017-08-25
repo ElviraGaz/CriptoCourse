@@ -23,9 +23,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private CoinsInfoService coinsInfoService;
-    private int limit = 30;
+    private int limit = 10;
     private ProgressBar progressBar;
     private TextView loadingText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +35,14 @@ public class MainActivity extends AppCompatActivity {
         loadingText = (TextView) findViewById(R.id.loading_text);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.VISIBLE);
-
         coinsInfoService = ApiFactory.getRetrofitInstance().create(CoinsInfoService.class);
         getCoinsInfo(limit);
-
-
-
     }
 
 
     private void getCoinsInfo(int limit) {
         // Создаем экземпляр запроса со всем необходимыми настройками
         Call<List<Coin>> call = coinsInfoService.getCoins(limit);
-
 
 
         // Выполняем запрос асинхронно
@@ -91,5 +87,6 @@ public class MainActivity extends AppCompatActivity {
         this.finish();
         startActivity(intent);
     }
+
 
 }
