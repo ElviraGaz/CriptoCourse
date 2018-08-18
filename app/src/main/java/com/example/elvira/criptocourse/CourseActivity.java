@@ -60,7 +60,7 @@ public class CourseActivity extends AppCompatActivity {
         course.setText("1 " + response.getSymbol() + " = " + response.getPriceUsd() + " $");
         lineChart = (LineChart) findViewById(R.id.lineChart);
         coinHistoryService = ApiFactory.getRetrofitInstance().create(CoinHistoryService.class);
-        getHistory("2017-08-20", "2017-08-29");
+        getHistory("2018-08-09", "2018-08-18");
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,8 +74,6 @@ public class CourseActivity extends AppCompatActivity {
     private void getHistory(String start, String end) {
         // Создаем экземпляр запроса со всем необходимыми настройками
         Call<HistoryBpi> call = coinHistoryService.getHistory(start, end);
-        // Отображаем progress bar
-        //loadingDialog.show();
 
         // Выполняем запрос асинхронно
         call.enqueue(new Callback<HistoryBpi>() {
@@ -111,7 +109,7 @@ public class CourseActivity extends AppCompatActivity {
         }.getType();
         Gson gson = new Gson();
         myMap = gson.fromJson(historyBpi.getBpi().toString(), type);
-        if(response.getSymbol().equals("BTC")) {
+        if (response.getSymbol().equals("BTC")) {
             setupChart();
             addDataToChart();
         }

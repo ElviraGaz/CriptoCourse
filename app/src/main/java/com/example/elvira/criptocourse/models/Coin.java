@@ -17,11 +17,12 @@ public class Coin implements Serializable {
     @SerializedName("price_usd")
     String priceUsd;
 
+    String imageUrl;
+
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    String imageUrl;
     public String getName() {
         return name;
     }

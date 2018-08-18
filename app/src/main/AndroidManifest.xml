@@ -22,6 +22,9 @@
         </activity>
         <activity android:name=".CoinsActivity" />
         <activity android:name=".CourseActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="146dba932974760d21730ea1b8950beca72d9648" />
     </application>
 
 </manifest>
